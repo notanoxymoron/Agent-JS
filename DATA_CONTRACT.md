@@ -8,7 +8,7 @@ These files contain your personal data, customizations, and work product. Update
 
 | File | Purpose |
 |------|---------|
-| `cv.md` | Your CV in markdown |
+| `resume.md` | Your resume in markdown |
 | `config/profile.yml` | Your identity, targets, comp range |
 | `modes/_profile.md` | Your archetypes, narrative, negotiation scripts |
 | `article-digest.md` | Your proof points from portfolio |

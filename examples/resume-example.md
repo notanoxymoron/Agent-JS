@@ -1,4 +1,4 @@
-# CV -- Alex Chen
+# resume -- Alex Chen
 
 **Location:** Austin, TX
 **Email:** alex@example.com

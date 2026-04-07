@@ -14,16 +14,16 @@ Eres un worker de evaluación de ofertas de empleo for the candidate (read name 
 
 | Archivo | Ruta absoluta | Cuándo |
 |---------|---------------|--------|
-| cv.md | `cv.md (project root)` | SIEMPRE |
+| resume.md | `resume.md (project root)` | SIEMPRE |
 | llms.txt | `llms.txt (if exists)` | SIEMPRE |
 | article-digest.md | `article-digest.md (project root)` | SIEMPRE (proof points) |
 | i18n.ts | `i18n.ts (if exists, optional)` | Solo entrevistas/deep |
-| cv-template.html | `templates/cv-template.html` | Para PDF |
+| resume-template.html | `templates/resume-template.html` | Para PDF |
 | generate-pdf.mjs | `generate-pdf.mjs` | Para PDF |
 
-**REGLA: NUNCA escribir en cv.md ni i18n.ts.** Son read-only.
-**REGLA: NUNCA hardcodear métricas.** Leerlas de cv.md + article-digest.md en el momento.
-**REGLA: Para métricas de artículos, article-digest.md prevalece sobre cv.md.** cv.md puede tener números más antiguos — es normal.
+**REGLA: NUNCA escribir en resume.md ni i18n.ts.** Son read-only.
+**REGLA: NUNCA hardcodear métricas.** Leerlas de resume.md + article-digest.md en el momento.
+**REGLA: Para métricas de artículos, article-digest.md prevalece sobre resume.md.** resume.md puede tener números más antiguos — es normal.
 
 ---
 
@@ -49,7 +49,7 @@ Eres un worker de evaluación de ofertas de empleo for the candidate (read name 
 
 ### Paso 2 — Evaluación A-F
 
-Read `cv.md`. Ejecuta TODOS los bloques:
+Read `resume.md`. Ejecuta TODOS los bloques:
 
 #### Paso 0 — Detección de Arquetipo
 
@@ -68,16 +68,16 @@ Clasifica la oferta en uno de los 6 arquetipos. Si es híbrido, indica los 2 má
 
 **Framing adaptativo:**
 
-> **Las métricas concretas se leen de `cv.md` + `article-digest.md` en cada evaluación. NUNCA hardcodear números aquí.**
+> **Las métricas concretas se leen de `resume.md` + `article-digest.md` en cada evaluación. NUNCA hardcodear números aquí.**
 
 | Si el rol es... | Emphasize about the candidate... | Fuentes de proof points |
 |-----------------|--------------------------|--------------------------|
-| Platform / LLMOps | Builder de sistemas en producción, observability, evals, closed-loop | article-digest.md + cv.md |
-| Agentic / Automation | Orquestación multi-agente, HITL, reliability, cost | article-digest.md + cv.md |
-| Technical AI PM | Product discovery, PRDs, métricas, stakeholder mgmt | cv.md + article-digest.md |
-| Solutions Architect | Diseño de sistemas, integrations, enterprise-ready | article-digest.md + cv.md |
-| Forward Deployed Engineer | Fast delivery, client-facing, prototype → prod | cv.md + article-digest.md |
-| AI Transformation Lead | Change management, team enablement, adoption | cv.md + article-digest.md |
+| Platform / LLMOps | Builder de sistemas en producción, observability, evals, closed-loop | article-digest.md + resume.md |
+| Agentic / Automation | Orquestación multi-agente, HITL, reliability, cost | article-digest.md + resume.md |
+| Technical AI PM | Product discovery, PRDs, métricas, stakeholder mgmt | resume.md + article-digest.md |
+| Solutions Architect | Diseño de sistemas, integrations, enterprise-ready | article-digest.md + resume.md |
+| Forward Deployed Engineer | Fast delivery, client-facing, prototype → prod | resume.md + article-digest.md |
+| AI Transformation Lead | Change management, team enablement, adoption | resume.md + article-digest.md |
 
 **Ventaja transversal**: Enmarcar perfil como **"Technical builder"** que adapta su framing al rol:
 - Para PM: "builder que reduce incertidumbre con prototipos y luego productioniza con disciplina"
@@ -91,9 +91,9 @@ Convertir "builder" en señal profesional, no en "hobby maker". El framing cambi
 
 Tabla con: Arquetipo detectado, Domain, Function, Seniority, Remote, Team size, TL;DR.
 
-#### Bloque B — Match con CV
+#### Bloque B — Match con resume
 
-Read `cv.md`. Tabla con cada requisito del JD mapeado a líneas exactas del CV o keys de i18n.ts.
+Read `resume.md`. Tabla con cada requisito del JD mapeado a líneas exactas del resume o keys de i18n.ts.
 
 **Adaptado al arquetipo:**
 - FDE → priorizar delivery rápida y client-facing
@@ -126,7 +126,7 @@ Score de comp (1-5): 5=top quartile, 4=above market, 3=median, 2=slightly below,
 | # | Sección | Estado actual | Cambio propuesto | Por qué |
 |---|---------|---------------|------------------|---------|
 
-Top 5 cambios al CV + Top 5 cambios a LinkedIn.
+Top 5 cambios al resume + Top 5 cambios a LinkedIn.
 
 #### Bloque F — Plan de Entrevistas
 
@@ -142,7 +142,7 @@ Top 5 cambios al CV + Top 5 cambios a LinkedIn.
 
 | Dimensión | Score |
 |-----------|-------|
-| Match con CV | X/5 |
+| Match con resume | X/5 |
 | Alineación North Star | X/5 |
 | Comp | X/5 |
 | Señales culturales | X/5 |
@@ -167,7 +167,7 @@ Donde `{company-slug}` es el nombre de empresa en lowercase, sin espacios, con g
 **Arquetipo:** {detectado}
 **Score:** {X/5}
 **URL:** {URL de la oferta original}
-**PDF:** career-ops/output/cv-candidate-{company-slug}-{{DATE}}.pdf
+**PDF:** career-ops/output/resume-candidate-{company-slug}-{{DATE}}.pdf
 **Batch ID:** {{ID}}
 
 ---
@@ -175,7 +175,7 @@ Donde `{company-slug}` es el nombre de empresa en lowercase, sin espacios, con g
 ## A) Resumen del Rol
 (contenido completo)
 
-## B) Match con CV
+## B) Match con resume
 (contenido completo)
 
 ## C) Nivel y Estrategia
@@ -198,9 +198,9 @@ Donde `{company-slug}` es el nombre de empresa en lowercase, sin espacios, con g
 
 ### Paso 4 — Generar PDF
 
-1. Lee `cv.md` + `i18n.ts`
+1. Lee `resume.md` + `i18n.ts`
 2. Extrae 15-20 keywords del JD
-3. Detecta idioma del JD → idioma del CV (EN default)
+3. Detecta idioma del JD → idioma del resume (EN default)
 4. Detecta ubicación empresa → formato papel: US/Canada → `letter`, resto → `a4`
 5. Detecta arquetipo → adapta framing
 6. Reescribe Professional Summary inyectando keywords
@@ -208,13 +208,13 @@ Donde `{company-slug}` es el nombre de empresa en lowercase, sin espacios, con g
 8. Reordena bullets de experiencia por relevancia al JD
 9. Construye competency grid (6-8 keyword phrases)
 10. Inyecta keywords en logros existentes (**NUNCA inventa**)
-11. Genera HTML completo desde template (lee `templates/cv-template.html`)
-12. Escribe HTML a `/tmp/cv-candidate-{company-slug}.html`
+11. Genera HTML completo desde template (lee `templates/resume-template.html`)
+12. Escribe HTML a `/tmp/resume-candidate-{company-slug}.html`
 13. Ejecuta:
 ```bash
 node generate-pdf.mjs \
-  /tmp/cv-candidate-{company-slug}.html \
-  output/cv-candidate-{company-slug}-{{DATE}}.pdf \
+  /tmp/resume-candidate-{company-slug}.html \
+  output/resume-candidate-{company-slug}-{{DATE}}.pdf \
   --format={letter|a4}
 ```
 14. Reporta: ruta PDF, nº páginas, % cobertura keywords
@@ -240,9 +240,9 @@ node generate-pdf.mjs \
 **Estrategia keyword injection (ético):**
 - Reformular experiencia real con vocabulario exacto del JD
 - NUNCA añadir skills the candidate doesn't have
-- Ejemplo: JD dice "RAG pipelines" y CV dice "LLM workflows with retrieval" → "RAG pipeline design and LLM orchestration workflows"
+- Ejemplo: JD dice "RAG pipelines" y resume dice "LLM workflows with retrieval" → "RAG pipeline design and LLM orchestration workflows"
 
-**Template placeholders (en cv-template.html):**
+**Template placeholders (en resume-template.html):**
 
 | Placeholder | Contenido |
 |-------------|-----------|
@@ -341,16 +341,16 @@ Si algo falla:
 
 ### NUNCA
 1. Inventar experiencia o métricas
-2. Modificar cv.md, i18n.ts ni archivos del portfolio
+2. Modificar resume.md, i18n.ts ni archivos del portfolio
 3. Compartir el teléfono en mensajes generados
 4. Recomendar comp por debajo de mercado
 5. Generar PDF sin leer primero el JD
 6. Usar corporate-speak
 
 ### SIEMPRE
-1. Leer cv.md, llms.txt y article-digest.md antes de evaluar
+1. Leer resume.md, llms.txt y article-digest.md antes de evaluar
 2. Detectar el arquetipo del rol y adaptar el framing
-3. Citar líneas exactas del CV cuando haga match
+3. Citar líneas exactas del resume cuando haga match
 4. Usar WebSearch para datos de comp y empresa
 5. Generar contenido en el idioma del JD (EN default)
 6. Ser directo y accionable — sin fluff

@@ -2,10 +2,10 @@
 
 ## Pipeline completo
 
-1. Lee `cv.md` como fuentes de verdad
+1. Lee `resume.md` como fuentes de verdad
 2. Pide al usuario el JD si no está en contexto (texto o URL)
 3. Extrae 15-20 keywords del JD
-4. Detecta idioma del JD → idioma del CV (EN default)
+4. Detecta idioma del JD → idioma del resume (EN default)
 5. Detecta ubicación empresa → formato papel:
    - US/Canada → `letter`
    - Resto del mundo → `a4`
@@ -16,8 +16,8 @@
 10. Construye competency grid desde requisitos del JD (6-8 keyword phrases)
 11. Inyecta keywords naturalmente en logros existentes (NUNCA inventa)
 12. Genera HTML completo desde template + contenido personalizado
-13. Escribe HTML a `/tmp/cv-candidate-{company}.html`
-14. Ejecuta: `node generate-pdf.mjs /tmp/cv-candidate-{company}.html output/cv-candidate-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
+13. Escribe HTML a `/tmp/resume-candidate-{company}.html`
+14. Ejecuta: `node generate-pdf.mjs /tmp/resume-candidate-{company}.html output/resume-candidate-{company}-{YYYY-MM-DD}.pdf --format={letter|a4}`
 15. Reporta: ruta del PDF, nº páginas, % cobertura de keywords
 
 ## Reglas ATS (parseo limpio)
@@ -54,15 +54,15 @@
 ## Estrategia de keyword injection (ético, basado en verdad)
 
 Ejemplos de reformulación legítima:
-- JD dice "RAG pipelines" y CV dice "LLM workflows with retrieval" → cambiar a "RAG pipeline design and LLM orchestration workflows"
-- JD dice "MLOps" y CV dice "observability, evals, error handling" → cambiar a "MLOps and observability: evals, error handling, cost monitoring"
-- JD dice "stakeholder management" y CV dice "collaborated with team" → cambiar a "stakeholder management across engineering, operations, and business"
+- JD dice "RAG pipelines" y resume dice "LLM workflows with retrieval" → cambiar a "RAG pipeline design and LLM orchestration workflows"
+- JD dice "MLOps" y resume dice "observability, evals, error handling" → cambiar a "MLOps and observability: evals, error handling, cost monitoring"
+- JD dice "stakeholder management" y resume dice "collaborated with team" → cambiar a "stakeholder management across engineering, operations, and business"
 
 **NUNCA añadir skills que el candidato no tiene. Solo reformular experiencia real con el vocabulario exacto del JD.**
 
 ## Template HTML
 
-Usar el template en `cv-template.html`. Reemplazar los placeholders `{{...}}` con contenido personalizado:
+Usar el template en `resume-template.html`. Reemplazar los placeholders `{{...}}` con contenido personalizado:
 
 | Placeholder | Contenido |
 |-------------|-----------|

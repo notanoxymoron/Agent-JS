@@ -2,7 +2,7 @@
 
 ## Origin
 
-This system was built and used by [santifer](https://santifer.io) to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. The archetypes, scoring logic, negotiation scripts, and proof point structure all reflect his specific career search in AI/automation roles.
+This system was built and used by [santifer](https://santifer.io) to evaluate 740+ job offers, generate 100+ tailored resumes, and land a Head of Applied AI role. The archetypes, scoring logic, negotiation scripts, and proof point structure all reflect his specific career search in AI/automation roles.
 
 The portfolio that goes with this system is also open source: [cv-santiago](https://github.com/santifer/cv-santiago).
 
@@ -13,7 +13,7 @@ The portfolio that goes with this system is also open source: [cv-santiago](http
 There are two layers. Read `DATA_CONTRACT.md` for the full list.
 
 **User Layer (NEVER auto-updated, personalization goes HERE):**
-- `cv.md`, `config/profile.yml`, `modes/_profile.md`, `article-digest.md`, `portals.yml`
+- `resume.md`, `config/profile.yml`, `modes/_profile.md`, `article-digest.md`, `portals.yml`
 - `data/*`, `reports/*`, `output/*`, `interview-prep/*`
 
 **System Layer (auto-updatable, DON'T put user data here):**
@@ -32,7 +32,7 @@ node update-system.mjs check
 
 Parse the JSON output:
 - `{"status": "update-available", "local": "1.0.0", "remote": "1.1.0", "changelog": "..."}` → tell the user:
-  > "career-ops update available (v{local} → v{remote}). Your data (CV, profile, tracker, reports) will NOT be touched. Want me to update?"
+  > "career-ops update available (v{local} → v{remote}). Your data (resume, profile, tracker, reports) will NOT be touched. Want me to update?"
   If yes → run `node update-system.mjs apply`. If no → run `node update-system.mjs dismiss`.
 - `{"status": "up-to-date"}` → say nothing
 - `{"status": "dismissed"}` → say nothing
@@ -43,7 +43,7 @@ To rollback: `node update-system.mjs rollback`
 
 ## What is career-ops
 
-AI-powered job search automation built on Claude Code: pipeline tracking, offer evaluation, CV generation, portal scanning, batch processing.
+AI-powered job search automation built on Claude Code: pipeline tracking, offer evaluation, resume generation, portal scanning, batch processing.
 
 ### Main Files
 
@@ -53,7 +53,7 @@ AI-powered job search automation built on Claude Code: pipeline tracking, offer 
 | `data/pipeline.md` | Inbox of pending URLs |
 | `data/scan-history.tsv` | Scanner dedup history |
 | `portals.yml` | Query and company config |
-| `templates/cv-template.html` | HTML template for CVs |
+| `templates/resume-template.html` | HTML template for resumes |
 | `generate-pdf.mjs` | Puppeteer: HTML to PDF |
 | `article-digest.md` | Compact proof points from portfolio (optional) |
 | `interview-prep/story-bank.md` | Accumulated STAR+R stories across evaluations |
@@ -63,7 +63,7 @@ AI-powered job search automation built on Claude Code: pipeline tracking, offer 
 
 **Before doing ANYTHING else, check if the system is set up.** Run these checks silently every time a session starts:
 
-1. Does `cv.md` exist?
+1. Does `resume.md` exist?
 2. Does `config/profile.yml` exist (not just profile.example.yml)?
 3. Does `modes/_profile.md` exist (not just _profile.template.md)?
 4. Does `portals.yml` exist (not just templates/portals.example.yml)?
@@ -72,16 +72,16 @@ If `modes/_profile.md` is missing, copy from `modes/_profile.template.md` silent
 
 **If ANY of these is missing, enter onboarding mode.** Do NOT proceed with evaluations, scans, or any other mode until the basics are in place. Guide the user step by step:
 
-#### Step 1: CV (required)
-If `cv.md` is missing, ask:
-> "I don't have your CV yet. You can either:
-> 1. Paste your CV here and I'll convert it to markdown
+#### Step 1: resume (required)
+If `resume.md` is missing, ask:
+> "I don't have your resume yet. You can either:
+> 1. Paste your resume here and I'll convert it to markdown
 > 2. Paste your LinkedIn URL and I'll extract the key info
-> 3. Tell me about your experience and I'll draft a CV for you
+> 3. Tell me about your experience and I'll draft a resume for you
 >
 > Which do you prefer?"
 
-Create `cv.md` from whatever they provide. Make it clean markdown with standard sections (Summary, Experience, Projects, Education, Skills).
+Create `resume.md` from whatever they provide. Make it clean markdown with standard sections (Summary, Experience, Projects, Education, Skills).
 
 #### Step 2: Profile (required)
 If `config/profile.yml` is missing, copy from `config/profile.example.yml` and then ask:
@@ -152,7 +152,7 @@ This system is designed to be customized by YOU (Claude). When the user asks you
 - "Translate the modes to English" → edit all files in `modes/`
 - "Add these companies to my portals" → edit `portals.yml`
 - "Update my profile" → edit `config/profile.yml`
-- "Change the CV template design" → edit `templates/cv-template.html`
+- "Change the resume template design" → edit `templates/resume-template.html`
 - "Adjust the scoring weights" → edit `modes/_shared.md` and `batch/batch-prompt.md`
 
 ### Language Modes
@@ -177,7 +177,7 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 | Asks to compare offers | `ofertas` |
 | Wants LinkedIn outreach | `contacto` |
 | Asks for company research | `deep` |
-| Wants to generate CV/PDF | `pdf` |
+| Wants to generate resume/PDF | `pdf` |
 | Evaluates a course/cert | `training` |
 | Evaluates portfolio project | `project` |
 | Asks about application status | `tracker` |
@@ -186,9 +186,9 @@ Default modes are in `modes/` (English). Additional language-specific modes are 
 | Processes pending URLs | `pipeline` |
 | Batch processes offers | `batch` |
 
-### CV Source of Truth
+### resume Source of Truth
 
-- `cv.md` in project root is the canonical CV
+- `resume.md` in project root is the canonical resume
 - `article-digest.md` has detailed proof points (optional)
 - **NEVER hardcode metrics** -- read them from these files at evaluation time
 

@@ -5,7 +5,7 @@ Para cada curso/cert que el candidato pregunte, evaluar 6 dimensiones:
 | Dimensión | Qué evalúa |
 |-----------|------------|
 | Alineación North Star | ¿Acerca o aleja del objetivo? |
-| Señal recruiter | ¿Qué piensan HMs al ver esto en un CV? |
+| Señal recruiter | ¿Qué piensan HMs al ver esto en un resume? |
 | Tiempo y esfuerzo | Semanas × horas/semana |
 | Coste de oportunidad | ¿Qué no puede hacer durante ese tiempo? |
 | Riesgos | ¿Contenido outdated? ¿Brand débil? ¿Demasiado básico? |

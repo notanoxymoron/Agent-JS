@@ -25,9 +25,9 @@ cp config/profile.example.yml config/profile.yml
 
 Edit `config/profile.yml` with your personal details: name, email, target roles, narrative, proof points.
 
-### 3. Add your CV
+### 3. Add your resume
 
-Create `cv.md` in the project root with your full CV in markdown format. This is the source of truth for all evaluations and PDFs.
+Create `resume.md` in the project root with your full resume in markdown format. This is the source of truth for all evaluations and PDFs.
 
 (Optional) Create `article-digest.md` with proof points from your portfolio projects/articles.
 
@@ -67,7 +67,7 @@ Then paste a job offer URL or description. Career-ops will automatically evaluat
 ## Verify Setup
 
 ```bash
-node cv-sync-check.mjs      # Check configuration
+node resume-sync-check.mjs      # Check configuration
 node verify-pipeline.mjs     # Check pipeline integrity
 ```
 

@@ -4,7 +4,7 @@
  * update-system.mjs — Safe auto-updater for career-ops
  *
  * Updates ONLY system layer files (modes, scripts, dashboard, templates).
- * NEVER touches user data (cv.md, profile.yml, _profile.md, data/, reports/).
+ * NEVER touches user data (resume.md, profile.yml, _profile.md, data/, reports/).
  *
  * Usage:
  *   node update-system.mjs check      # Check if update available
@@ -51,7 +51,7 @@ const SYSTEM_PATHS = [
   'verify-pipeline.mjs',
   'dedup-tracker.mjs',
   'normalize-statuses.mjs',
-  'cv-sync-check.mjs',
+  'resume-sync-check.mjs',
   'update-system.mjs',
   'batch/batch-prompt.md',
   'batch/batch-runner.sh',
@@ -72,7 +72,7 @@ const SYSTEM_PATHS = [
 
 // User layer paths — NEVER touch these (safety check)
 const USER_PATHS = [
-  'cv.md',
+  'resume.md',
   'config/profile.yml',
   'modes/_profile.md',
   'portals.yml',
@@ -278,7 +278,7 @@ function rollback() {
     git(`commit -m "chore: rollback system files from ${latest}"`);
 
     console.log(`Rollback complete. System files restored from ${latest}.`);
-    console.log('Your data (CV, profile, tracker, reports) was not affected.');
+    console.log('Your data (resume, profile, tracker, reports) was not affected.');
   } catch (err) {
     console.error('Rollback failed:', err.message);
     process.exit(1);

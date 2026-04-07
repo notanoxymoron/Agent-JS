@@ -2,7 +2,7 @@
 
 **[:gb: English](#what-is-this)** | **[:es: Español](#es-versión-en-español)**
 
-> AI-powered job search pipeline built on Claude Code. Evaluate offers, generate tailored CVs, scan portals, and track everything -- powered by AI agents.
+> AI-powered job search pipeline built on Claude Code. Evaluate offers, generate tailored resumes, scan portals, and track everything -- powered by AI agents.
 
 ![Claude Code](https://img.shields.io/badge/Claude_Code-000?style=flat&logo=anthropic&logoColor=white)
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)
@@ -21,28 +21,28 @@
 Career-Ops turns Claude Code into a full job search command center. Instead of manually tracking applications in a spreadsheet, you get an AI-powered pipeline that:
 
 - **Evaluates offers** with a structured A-F scoring system (10 weighted dimensions)
-- **Generates tailored PDFs** -- ATS-optimized CVs customized per job description
+- **Generates tailored PDFs** -- ATS-optimized resumes customized per job description
 - **Scans portals** automatically (Greenhouse, Ashby, Lever, company pages)
 - **Processes in batch** -- evaluate 10+ offers in parallel with sub-agents
 - **Tracks everything** in a single source of truth with integrity checks
 
 > **Important: This is NOT a spray-and-pray tool.** Career-ops is a filter -- it helps you find the few offers worth your time out of hundreds. The system strongly recommends against applying to anything scoring below 4.0/5. Your time is valuable, and so is the recruiter's. Always review before submitting.
 
-Career-ops is agentic: Claude Code navigates career pages with Playwright, evaluates fit by reasoning about your CV vs the job description (not keyword matching), and adapts your resume per listing.
+Career-ops is agentic: Claude Code navigates career pages with Playwright, evaluates fit by reasoning about your resume vs the job description (not keyword matching), and adapts your resume per listing.
 
-> **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your CV, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
+> **Heads up: the first evaluations won't be great.** The system doesn't know you yet. Feed it context -- your resume, your career story, your proof points, your preferences, what you're good at, what you want to avoid. The more you nurture it, the better it gets. Think of it as onboarding a new recruiter: the first week they need to learn about you, then they become invaluable.
 
-Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored CVs, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/career-ops-system).
+Built by someone who used it to evaluate 740+ job offers, generate 100+ tailored resumes, and land a Head of Applied AI role. [Read the full case study](https://santifer.io/career-ops-system).
 
 ## Features
 
 | Feature | Description |
 |---------|-------------|
 | **Auto-Pipeline** | Paste a URL, get a full evaluation + PDF + tracker entry |
-| **6-Block Evaluation** | Role summary, CV match, level strategy, comp research, personalization, interview prep (STAR+R) |
+| **6-Block Evaluation** | Role summary, resume match, level strategy, comp research, personalization, interview prep (STAR+R) |
 | **Interview Story Bank** | Accumulates STAR+Reflection stories across evaluations -- 5-10 master stories that answer any behavioral question |
 | **Negotiation Scripts** | Salary negotiation frameworks, geographic discount pushback, competing offer leverage |
-| **ATS PDF Generation** | Keyword-injected CVs with Space Grotesk + DM Sans design |
+| **ATS PDF Generation** | Keyword-injected resumes with Space Grotesk + DM Sans design |
 | **Portal Scanner** | 45+ companies pre-configured (Anthropic, OpenAI, ElevenLabs, Retool, n8n...) + custom queries across Ashby, Greenhouse, Lever, Wellfound |
 | **Batch Processing** | Parallel evaluation with `claude -p` workers |
 | **Dashboard TUI** | Terminal UI to browse, filter, and sort your pipeline |
@@ -61,8 +61,8 @@ npx playwright install chromium   # Required for PDF generation
 cp config/profile.example.yml config/profile.yml  # Edit with your details
 cp templates/portals.example.yml portals.yml       # Customize companies
 
-# 3. Add your CV
-# Create cv.md in the project root with your CV in markdown
+# 3. Add your resume
+# Create resume.md in the project root with your resume in markdown
 
 # 4. Personalize with Claude
 claude   # Open Claude Code in this directory
@@ -71,7 +71,7 @@ claude   # Open Claude Code in this directory
 # "Change the archetypes to backend engineering roles"
 # "Translate the modes to English"
 # "Add these 5 companies to portals.yml"
-# "Update my profile with this CV I'm pasting"
+# "Update my profile with this resume I'm pasting"
 
 # 5. Start using
 # Paste a job URL or run /career-ops
@@ -89,7 +89,7 @@ Career-ops is a single slash command with multiple modes:
 /career-ops                → Show all available commands
 /career-ops {paste a JD}   → Full auto-pipeline (evaluate + PDF + tracker)
 /career-ops scan           → Scan portals for new offers
-/career-ops pdf            → Generate ATS-optimized CV
+/career-ops pdf            → Generate ATS-optimized resume
 /career-ops batch          → Batch evaluate multiple offers
 /career-ops tracker        → View application status
 /career-ops apply          → Fill application forms with AI
@@ -115,7 +115,7 @@ You paste a job URL or description
          │
 ┌────────▼─────────┐
 │  A-F Evaluation   │  Match, gaps, comp research, STAR stories
-│  (reads cv.md)    │
+│  (reads resume.md)    │
 └────────┬─────────┘
          │
     ┌────┼────┐
@@ -156,7 +156,7 @@ Features: 6 filter tabs, 4 sort modes, grouped/flat view, lazy-loaded previews, 
 ```
 career-ops/
 ├── CLAUDE.md                    # Agent instructions
-├── cv.md                        # Your CV (create this)
+├── resume.md                        # Your resume (create this)
 ├── article-digest.md            # Your proof points (optional)
 ├── config/
 │   └── profile.example.yml      # Template for your profile
@@ -168,7 +168,7 @@ career-ops/
 │   ├── batch.md                 # Batch processing
 │   └── ...
 ├── templates/
-│   ├── cv-template.html         # ATS-optimized CV template
+│   ├── resume-template.html         # ATS-optimized resume template
 │   ├── portals.example.yml      # Scanner config template
 │   └── states.yml               # Canonical statuses
 ├── batch/
@@ -180,7 +180,7 @@ career-ops/
 ├── output/                      # Generated PDFs (gitignored)
 ├── fonts/                       # Space Grotesk + DM Sans
 ├── docs/                        # Setup, customization, architecture
-└── examples/                    # Sample CV, report, proof points
+└── examples/                    # Sample resume, report, proof points
 ```
 
 ## Tech Stack
@@ -222,16 +222,16 @@ MIT
 Career-Ops convierte Claude Code en un centro de mando de busqueda de empleo. En vez de trackear aplicaciones en un spreadsheet, tienes un pipeline AI que:
 
 - **Evalua ofertas** con scoring estructurado A-F (10 dimensiones ponderadas)
-- **Genera PDFs personalizados** -- CVs ATS-optimizados por oferta
+- **Genera PDFs personalizados** -- resumes ATS-optimizados por oferta
 - **Escanea portales** automaticamente (Greenhouse, Ashby, Lever, webs de empresas)
 - **Procesa en batch** -- evalua 10+ ofertas en paralelo con sub-agentes
 - **Trackea todo** en una fuente de verdad unica con checks de integridad
 
 > **Importante: Esto NO es para spamear empresas.** Career-ops es un filtro -- te ayuda a encontrar las pocas ofertas que merecen tu tiempo entre cientos. El sistema recomienda encarecidamente no aplicar a nada por debajo de 4.0/5. Tu tiempo es valioso, y el del recruiter tambien. Siempre revisa antes de enviar.
 
-> **Aviso: las primeras evaluaciones no seran buenas.** El sistema no te conoce todavia. Dale contexto -- tu CV, tu historia profesional, tus proof points, tus preferencias, en que eres bueno, que quieres evitar. Cuanto mas lo nutras, mejor filtra. Piensa en ello como hacer onboarding a un recruiter nuevo: la primera semana necesita conocerte, luego se vuelve invaluable.
+> **Aviso: las primeras evaluaciones no seran buenas.** El sistema no te conoce todavia. Dale contexto -- tu resume, tu historia profesional, tus proof points, tus preferencias, en que eres bueno, que quieres evitar. Cuanto mas lo nutras, mejor filtra. Piensa en ello como hacer onboarding a un recruiter nuevo: la primera semana necesita conocerte, luego se vuelve invaluable.
 
-Construido por alguien que lo uso para evaluar 740+ ofertas, generar 100+ CVs personalizados, y conseguir un rol de Head of Applied AI. [Lee el case study completo](https://santifer.io/career-ops).
+Construido por alguien que lo uso para evaluar 740+ ofertas, generar 100+ resumes personalizados, y conseguir un rol de Head of Applied AI. [Lee el case study completo](https://santifer.io/career-ops).
 
 ## Inicio rapido
 
@@ -244,8 +244,8 @@ cd career-ops && npm install
 cp config/profile.example.yml config/profile.yml  # Editar con tus datos
 cp templates/portals.example.yml portals.yml       # Personalizar empresas
 
-# 3. Añadir tu CV
-# Crear cv.md en la raiz del proyecto con tu CV en markdown
+# 3. Añadir tu resume
+# Crear resume.md en la raiz del proyecto con tu resume en markdown
 
 # 4. Personalizar con Claude
 claude   # Abrir Claude Code en este directorio
@@ -254,7 +254,7 @@ claude   # Abrir Claude Code en este directorio
 # "Cambia los arquetipos a roles de backend"
 # "Traduce los modes a ingles"
 # "Añade estas empresas a portals.yml"
-# "Actualiza mi perfil con este CV que te pego"
+# "Actualiza mi perfil con este resume que te pego"
 
 # 5. Usar
 # Pega una URL de oferta o ejecuta /career-ops
@@ -287,7 +287,7 @@ Career-ops es un unico slash command con multiples modos:
 /career-ops                → Mostrar todos los comandos
 /career-ops {pega un JD}   → Pipeline completo (evaluar + PDF + tracker)
 /career-ops scan           → Escanear portales
-/career-ops pdf            → Generar CV ATS-optimizado
+/career-ops pdf            → Generar resume ATS-optimizado
 /career-ops batch          → Evaluar ofertas en batch
 /career-ops tracker        → Ver estado de aplicaciones
 /career-ops apply          → Rellenar formularios con IA

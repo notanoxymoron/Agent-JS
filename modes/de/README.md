@@ -62,12 +62,12 @@ Wenn die Community die deutschen Modi annimmt, werden weitere Modi in einem Folg
 
 Bewusst nicht eingedeutscht, weil Standard-Tech-Vokabular:
 
-- `cv.md`, `pipeline`, `tracker`, `report`, `score`, `archetype`, `proof point`
+- `resume.md`, `pipeline`, `tracker`, `report`, `score`, `archetype`, `proof point`
 - Tool-Namen (`Playwright`, `WebSearch`, `WebFetch`, `Read`, `Write`, `Edit`, `Bash`)
 - Status-Werte im Tracker (`Evaluated`, `Applied`, `Interview`, `Offer`, `Rejected`)
 - Code-Snippets, Pfade, Befehle
 
-Die Modi verwenden deutsches Tech-Deutsch, wie es in echten Engineering-Teams in Berlin, München oder Zürich gesprochen wird: deutscher Fließtext, englische Fachbegriffe da, wo sie üblich sind. Keine erzwungene Eindeutschung von "Pipeline" zu "Förderband", kein "Lebenslauf-Datei" für `cv.md`.
+Die Modi verwenden deutsches Tech-Deutsch, wie es in echten Engineering-Teams in Berlin, München oder Zürich gesprochen wird: deutscher Fließtext, englische Fachbegriffe da, wo sie üblich sind. Keine erzwungene Eindeutschung von "Pipeline" zu "Förderband", kein "Lebenslauf-Datei" für `resume.md`.
 
 ## Vokabular-Spickzettel
 
@@ -78,7 +78,7 @@ Wenn du Modi anpasst oder erweiterst, halte dich an dieses Vokabular — so blei
 | Job posting | Stellenanzeige |
 | Application | Bewerbung |
 | Cover letter | Anschreiben |
-| Resume / CV | Lebenslauf |
+| Resume | Lebenslauf |
 | Salary | Gehalt / Vergütung |
 | Compensation | Vergütung |
 | Skills | Kenntnisse / Fähigkeiten |

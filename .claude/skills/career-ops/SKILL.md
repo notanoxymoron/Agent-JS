@@ -1,6 +1,6 @@
 ---
 name: career-ops
-description: AI job search command center -- evaluate offers, generate CVs, scan portals, track applications
+description: AI job search command center -- evaluate offers, generate resumes, scan portals, track applications
 user_invocable: true
 args: mode
 ---
@@ -48,7 +48,7 @@ Available commands:
   /career-ops ofertas   → Compare and rank multiple offers
   /career-ops contacto  → LinkedIn power move: find contacts + draft message
   /career-ops deep      → Deep research prompt about company
-  /career-ops pdf       → PDF only, ATS-optimized CV
+  /career-ops pdf       → PDF only, ATS-optimized resume
   /career-ops training  → Evaluate course/cert against North Star
   /career-ops project   → Evaluate portfolio project idea
   /career-ops tracker   → Application status overview

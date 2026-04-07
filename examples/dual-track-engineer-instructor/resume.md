@@ -1,4 +1,4 @@
-# CV -- Sam Rivera
+# resume -- Sam Rivera
 
 **Location:** Berlin, Germany (remote-friendly, EU timezones)
 **Email:** sam@example.com

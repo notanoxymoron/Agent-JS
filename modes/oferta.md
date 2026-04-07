@@ -20,9 +20,9 @@ Tabla con:
 - Team size (si se menciona)
 - TL;DR en 1 frase
 
-## Bloque B — Match con CV
+## Bloque B — Match con resume
 
-Lee `cv.md`. Crea tabla con cada requisito del JD mapeado a líneas exactas del CV.
+Lee `resume.md`. Crea tabla con cada requisito del JD mapeado a líneas exactas del resume.
 
 **Adaptado al arquetipo:**
 - Si FDE → priorizar proof points de delivery rápida y client-facing
@@ -60,7 +60,7 @@ Tabla con datos y fuentes citadas. Si no hay datos, decirlo en vez de inventar.
 | 1 | Summary | ... | ... | ... |
 | ... | ... | ... | ... | ... |
 
-Top 5 cambios al CV + Top 5 cambios a LinkedIn para maximizar match.
+Top 5 cambios al resume + Top 5 cambios a LinkedIn para maximizar match.
 
 ## Bloque F — Plan de Entrevistas
 
@@ -114,7 +114,7 @@ Guardar evaluación completa en `reports/{###}-{company-slug}-{YYYY-MM-DD}.md`.
 ## A) Resumen del Rol
 (contenido completo del bloque A)
 
-## B) Match con CV
+## B) Match con resume
 (contenido completo del bloque B)
 
 ## C) Nivel y Estrategia

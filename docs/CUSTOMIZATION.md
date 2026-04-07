@@ -13,7 +13,7 @@ Key sections:
 
 ## Target Roles (modes/_shared.md)
 
-The archetype table in `_shared.md` determines how offers are scored and CVs are framed. Edit the table to match YOUR career targets:
+The archetype table in `_shared.md` determines how offers are scored and resumes are framed. Edit the table to match YOUR career targets:
 
 ```markdown
 | Archetype | Thematic axes | What they buy |
@@ -33,7 +33,7 @@ Copy from `templates/portals.example.yml` and customize:
 3. **search_queries**: WebSearch queries for job boards (Ashby, Greenhouse, Lever)
 4. **tracked_companies**: Companies to check directly
 
-## CV Template (templates/cv-template.html)
+## resume Template (templates/resume-template.html)
 
 The HTML template uses these design tokens:
 - **Fonts**: Space Grotesk (headings) + DM Sans (body) -- self-hosted in `fonts/`

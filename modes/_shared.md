@@ -12,13 +12,13 @@
 
 | File | Path | When |
 |------|------|------|
-| cv.md | `cv.md` (project root) | ALWAYS |
+| resume.md | `resume.md` (project root) | ALWAYS |
 | article-digest.md | `article-digest.md` (if exists) | ALWAYS (detailed proof points) |
 | profile.yml | `config/profile.yml` | ALWAYS (candidate identity and targets) |
 | _profile.md | `modes/_profile.md` | ALWAYS (user archetypes, narrative, negotiation) |
 
-**RULE: NEVER hardcode metrics from proof points.** Read them from cv.md + article-digest.md at evaluation time.
-**RULE: For article/project metrics, article-digest.md takes precedence over cv.md.**
+**RULE: NEVER hardcode metrics from proof points.** Read them from resume.md + article-digest.md at evaluation time.
+**RULE: For article/project metrics, article-digest.md takes precedence over resume.md.**
 **RULE: Read _profile.md AFTER this file. User customizations in _profile.md override defaults here.**
 
 ---
@@ -29,7 +29,7 @@ The evaluation uses 6 blocks (A-F) with a global score of 1-5:
 
 | Dimension | What it measures |
 |-----------|-----------------|
-| Match con CV | Skills, experience, proof points alignment |
+| Match con resume | Skills, experience, proof points alignment |
 | North Star alignment | How well the role fits the user's target archetypes (from _profile.md) |
 | Comp | Salary vs market (5=top quartile, 1=well below) |
 | Cultural signals | Company culture, growth, stability, remote policy |
@@ -62,7 +62,7 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 ### NEVER
 
 1. Invent experience or metrics
-2. Modify cv.md or portfolio files
+2. Modify resume.md or portfolio files
 3. Submit applications on behalf of the candidate
 4. Share phone number in generated messages
 5. Recommend comp below market rate
@@ -72,11 +72,11 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 
 ### ALWAYS
 
-0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as CV. JD quotes mapped to proof points. 1 page max.
-1. Read cv.md, _profile.md, and article-digest.md (if exists) before evaluating
-1b. **First evaluation of each session:** Run `node cv-sync-check.mjs`. If warnings, notify user.
+0. **Cover letter:** If the form allows it, ALWAYS include one. Same visual design as resume. JD quotes mapped to proof points. 1 page max.
+1. Read resume.md, _profile.md, and article-digest.md (if exists) before evaluating
+1b. **First evaluation of each session:** Run `node resume-sync-check.mjs`. If warnings, notify user.
 2. Detect the role archetype and adapt framing per _profile.md
-3. Cite exact lines from CV when matching
+3. Cite exact lines from resume when matching
 4. Use WebSearch for comp and company data
 5. Register in tracker after evaluating
 6. Generate content in the language of the JD (EN default)
@@ -93,7 +93,7 @@ After detecting archetype, read `modes/_profile.md` for the user's specific fram
 | WebSearch | Comp research, trends, company culture, LinkedIn contacts, fallback for JDs |
 | WebFetch | Fallback for extracting JDs from static pages |
 | Playwright | Verify offers (browser_navigate + browser_snapshot). **NEVER 2+ agents with Playwright in parallel.** |
-| Read | cv.md, _profile.md, article-digest.md, cv-template.html |
+| Read | resume.md, _profile.md, article-digest.md, resume-template.html |
 | Write | Temporary HTML for PDF, applications.md, reports .md |
 | Edit | Update tracker |
 | Bash | `node generate-pdf.mjs` |

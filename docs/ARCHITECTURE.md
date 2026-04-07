@@ -41,14 +41,14 @@
 3. **Classify**: Detect archetype (1 of 6 types)
 4. **Evaluate**: 6 blocks (A-F):
    - A: Role summary
-   - B: CV match (gaps + mitigation)
+   - B: resume match (gaps + mitigation)
    - C: Level strategy
    - D: Comp research (WebSearch)
-   - E: CV personalization plan
+   - E: resume personalization plan
    - F: Interview prep (STAR stories)
 5. **Score**: Weighted average across 10 dimensions (1-5)
 6. **Report**: Save as `reports/{num}-{company}-{date}.md`
-7. **PDF**: Generate ATS-optimized CV (`generate-pdf.mjs`)
+7. **PDF**: Generate ATS-optimized resume (`generate-pdf.mjs`)
 8. **Track**: Write TSV to `batch/tracker-additions/`, auto-merged
 
 ## Batch Processing
@@ -73,18 +73,18 @@ The orchestrator manages parallelism, state, retries, and resume.
 ## Data Flow
 
 ```
-cv.md                    →  Evaluation context
+resume.md                    →  Evaluation context
 article-digest.md        →  Proof points for matching
 config/profile.yml       →  Candidate identity
 portals.yml              →  Scanner configuration
 templates/states.yml     →  Canonical status values
-templates/cv-template.html → PDF generation template
+templates/resume-template.html → PDF generation template
 ```
 
 ## File Naming Conventions
 
 - Reports: `{###}-{company-slug}-{YYYY-MM-DD}.md` (3-digit zero-padded)
-- PDFs: `cv-candidate-{company-slug}-{YYYY-MM-DD}.pdf`
+- PDFs: `resume-candidate-{company-slug}-{YYYY-MM-DD}.pdf`
 - Tracker TSVs: `batch/tracker-additions/{id}.tsv`
 
 ## Pipeline Integrity
@@ -97,7 +97,7 @@ Scripts maintain data consistency:
 | `verify-pipeline.mjs` | Health check: statuses, duplicates, links |
 | `dedup-tracker.mjs` | Removes duplicate entries by company+role |
 | `normalize-statuses.mjs` | Maps status aliases to canonical values |
-| `cv-sync-check.mjs` | Validates setup consistency |
+| `resume-sync-check.mjs` | Validates setup consistency |
 
 ## Dashboard TUI
 
